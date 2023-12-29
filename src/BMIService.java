@@ -5,37 +5,42 @@ public class BMIService {
     private BMISystem system;
     private Statistics statistics;
     private Report report;
-
-
     public BMIService() {
 
         system = new BMISystem();
         statistics = new Statistics();
         report = new Report();
     }
-
-
     public int getUserCount() {
         return system.getUserCount();
     }
-   public void inputUserInfo() {
+    public void inputUserInfo() {
         Scanner scanner = new Scanner(System.in);
-
         try {
             System.out.print("Enter name: ");
             String name = scanner.nextLine();
 
             System.out.print("Enter age: ");
             int age = scanner.nextInt();
+            if (age < 0) {
+                throw new IllegalArgumentException("Age cannot be negative.");
+            }
+            scanner.nextLine();
 
             System.out.print("Enter gender (M/F): ");
-            char gender = scanner.next().charAt(0);
+            char gender = scanner.nextLine().charAt(0);
 
             System.out.print("Enter height (cm): ");
             double height = scanner.nextDouble();
+            if (height < 0) {
+                throw new IllegalArgumentException("Height cannot be negative.");
+            }
 
             System.out.print("Enter weight (kg): ");
             double weight = scanner.nextDouble();
+            if (weight < 0) {
+                throw new IllegalArgumentException("Weight cannot be negative.");
+            }
 
             User user = new User(name, age, gender, height, weight);
             system.addUser(user);
@@ -45,10 +50,10 @@ public class BMIService {
         } catch (NoSuchElementException e) {
             System.out.println("Input not found. Please enter valid data.");
             scanner.nextLine(); // Clear the input buffer
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
-
-
     public void displayReport() {
         report.generateReport(system);
         statistics.updateStatistics(report);
