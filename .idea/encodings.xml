@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/BMISystem.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Main.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Report.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Statistics.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/User.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/UserInterface.java" charset="windows-1251" />
+  </component>
+</project>
